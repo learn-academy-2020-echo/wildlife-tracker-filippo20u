@@ -96,6 +96,7 @@ end
 #9) Story: As the consumer of the API, I can run a report to list all sightings during a given time period.
 Hint: Your controller can look something like this:
 
+
 class SightingsController < ApplicationController
   def index
     sightings = Sighting.where(start_date: params[:start_date]..params[:end_date])
@@ -104,3 +105,5 @@ class SightingsController < ApplicationController
 end
 
 Remember to add the start_date and end_date to what is permitted in your strong parameters method.
+
+strong params added
