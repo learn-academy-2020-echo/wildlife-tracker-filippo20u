@@ -89,13 +89,13 @@ PATCH localhost:3000/sightings/1
 
 
 
-# 7) Story: As the consumer of the API I can destroy an animal sighting in the database.
+#7) Story: As the consumer of the API I can destroy an animal sighting in the database.
 
 delete method working added, ID2 not present
 
 
 
-# 8) Story: As the consumer of the API, when I view a specific animal, I can also see a list sightings of that animal.
+#8) Story: As the consumer of the API, when I view a specific animal, I can also see a list sightings of that animal.
 
   def show
       animal = Animal.find_by(id: params[:id]).sightings
