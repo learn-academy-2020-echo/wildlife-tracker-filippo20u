@@ -1,10 +1,10 @@
 class SightingsController < ApplicationController
 
-      # Story 9
+      # Story 9 Controller updated (NOT WORKING)
 
       # def index
       #   sightings = Sighting.where(start_date: params[:start_date],params[:end_date])
-      #   render json: sightings.where/[:start_date]/[:end_date]
+      #   render json: sightings
       # end
 
 

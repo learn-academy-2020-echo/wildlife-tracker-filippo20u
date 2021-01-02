@@ -7,30 +7,22 @@ class AnimalsController < ApplicationController
         render json: animals
     end
 
-# WORKING METHOD
-    # def show
-    #     animal = Animal.find (params[:id])
-    #     render json: animal
-    # end
 
 
 # Wed adictions (Story 8)
 
-    # def show
-    #   animal = Animal.find(params[:id])
-    #   render json: animal.:sightings.to_json
-    # end
-    # def show
-    #   animal = Animal.find_by(id: params[:id])
-    #   render json: animal.to_json( :include => {:sighting })
-    # end
-
+  
     def show
       animal = Animal.find_by(id: params[:id]).sightings
       render json: animal
     end
 
 
+# initial Show method before story 8
+    # def show
+    #     animal = Animal.find (params[:id])
+    #     render json: animal
+    # end
 
 
 
