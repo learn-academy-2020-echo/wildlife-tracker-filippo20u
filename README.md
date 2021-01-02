@@ -103,12 +103,12 @@ delete method working added, ID2 not present
     end
 
 
-# Amanda
+# Amanda Code review:
 
-# 9) Story: As the consumer of the API, I can run a report to list all sightings during a given time period.
+# 9)Story: As the consumer of the API, I can run a report to list all sightings during a given time period.
 
 
-# Controller updated: 
+#Controller updated: 
 
 class SightingsController < ApplicationController
   def index
@@ -118,7 +118,7 @@ class SightingsController < ApplicationController
 end
 
 
-# Strong parameters added: 
+#Strong parameters added: 
 
  def sighting_params
           params.require(:sighting).permit(:datetime, :latitude, :longitude, :start_date , :end_date )
