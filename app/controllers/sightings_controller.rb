@@ -53,16 +53,16 @@ class SightingsController < ApplicationController
 
       private
 
-      # working strong params
-      def sighting_params
-          params.require(:sighting).permit(:datetime, :latitude, :longitude)
-      end
+      # working strong params before Story 9
+      # def sighting_params
+      #     params.require(:sighting).permit(:datetime, :latitude, :longitude)
+      # end
 
 
       # Updated  strong params for Story ( Amanda )
-      # def sighting_params
-      #     params.require(:sighting).permit(:datetime, :latitude, :longitude, :start_date , :end_date )
-      # end
+      def sighting_params
+          params.require(:sighting).permit(:datetime, :latitude, :longitude, :start_date , :end_date )
+      end
 
 
 end

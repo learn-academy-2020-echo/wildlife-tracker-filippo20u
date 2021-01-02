@@ -16,11 +16,25 @@ class AnimalsController < ApplicationController
 
 # Wed adictions (Story 8)
 
+    # def show
+    #   animal = Animal.find(params[:id])
+    #   render json: animal.:sightings.to_json
+    # end
+    # def show
+    #   animal = Animal.find_by(id: params[:id])
+    #   render json: animal.to_json( :include => {:sighting })
+    # end
+
     def show
-      animal = Animal.find(params[:id])
-      render json: animal.sightings
+      animal = Animal.find_by(id: params[:id]).sightings
+      render json: animal
     end
 
+
+
+
+
+# Working methods:
 
 
     def create
@@ -58,7 +72,7 @@ class AnimalsController < ApplicationController
 
     private
     def animal_params
-        params.require(:animal).permit(:common_name, :latin_name, :kingdom )
+        params.require(:animal).permit(:common_name, :latin_name, :kingdom, :start_date, :end_date )
     end
 
 
