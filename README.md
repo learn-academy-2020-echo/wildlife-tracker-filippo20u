@@ -1,13 +1,9 @@
-$ rails new wildilife_tracker -d postgresql -T
+$ rails new wildlife_tracker -d postgresql -T
 $ cd myapp
 $ rails db:create
 $ bundle add rspec-rails
 $ rails generate rspec:install
 $ rails server
-
-
-$ rails generate resource Animal common_name:string, latin_name:string kingdom:string
-$ rails generate resource Sighting
 
 
 
@@ -54,6 +50,8 @@ DELETE localhost:3000/animals/4  Send (done)
 
 $ rails generate resource Sighting animal_id:integer date:datetime latitude:string longitude:string
 
+Models 
+ updated with the lines below:
 has_many :sightings
 belongs_to :animal
 
@@ -63,18 +61,28 @@ lea = Animal.first
 
 Sighting.create animal_id:integer date:datetime latitude:string longitude:string
 
-lea.sightings.create date:'2016-05-01 23:12:00', latitude:'Texas', longitude:'Equatorina'
+lea.sightings.create date:'2016-05-01 23:12:00', latitude:'Texas', longitude:'Equator'
 
 
 #6) Story: As the consumer of the API I can update an animal sighting in the database.
+
+  def update
+          sighting = Sighting.find(params[:id])
+          sighting.update(sighting_params)
+          if sighting.valid?
+            render json: sighting
+          else
+            render json: sighting.errors
+          end
+      end
 
 PATCH localhost:3000/sightings/1
 
 {
         "sighting":{
         "date": "2021-01-01T23:12:00.000Z",
-        "latitude": "Fruskiona Meridionale",
-        "longitude": "Equatorina"
+        "latitude": "California",
+        "longitude": "Equator"
         }
 
 }
@@ -83,7 +91,9 @@ PATCH localhost:3000/sightings/1
 
 #7) Story: As the consumer of the API I can destroy an animal sighting in the database.
 
-delete method working, ID2 not present
+delete method working added, ID2 not present
+
+
 
 #8) Story: As the consumer of the API, when I view a specific animal, I can also see a list sightings of that animal.
 
@@ -93,9 +103,12 @@ def show
 
 end
 
-#9) Story: As the consumer of the API, I can run a report to list all sightings during a given time period.
-Hint: Your controller can look something like this:
+# Amanda
 
+# 9) Story: As the consumer of the API, I can run a report to list all sightings during a given time period.
+
+
+# Controller updated: 
 
 class SightingsController < ApplicationController
   def index
@@ -104,6 +117,7 @@ class SightingsController < ApplicationController
   end
 end
 
-Remember to add the start_date and end_date to what is permitted in your strong parameters method.
 
-strong params added
+# Strong parameters added: 
+
+

@@ -2,10 +2,10 @@ class SightingsController < ApplicationController
 
       # Story 9
 
-      def index
-        sightings = Sighting.where(start_date: params[:start_date]..params[:end_date])
-        render json: sightings
-      end
+      # def index
+      #   sightings = Sighting.where(start_date: params[:start_date],params[:end_date])
+      #   render json: sightings.where/[:start_date]/[:end_date]
+      # end
 
 
       # working index
@@ -51,18 +51,17 @@ class SightingsController < ApplicationController
 
 
 
-
-
       private
 
       # working strong params
       def sighting_params
-          params.require(:sighting).permit(:datetime, :latitude, :longitude, :start_date , :end_date )
+          params.require(:sighting).permit(:datetime, :latitude, :longitude)
       end
 
-      # working strong params
+
+      # Updated  strong params for Story ( Amanda )
       # def sighting_params
-      #     params.require(:sighting).permit(:datetime, :latitude, :longitude)
+      #     params.require(:sighting).permit(:datetime, :latitude, :longitude, :start_date , :end_date )
       # end
 
 
